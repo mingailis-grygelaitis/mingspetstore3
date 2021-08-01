@@ -37,6 +37,7 @@ public class CRUDPetStore
         requestParams = generatePostBody();
         postRequest.body(requestParams.toString());
         response = postRequest.post(baseURL);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     public void getAndValidatePet() throws InterruptedException
@@ -45,6 +46,7 @@ public class CRUDPetStore
         RequestSpecification getPetInfo = RestAssured.given();
         getPetInfo.header("Content-Type", "application/json");
         Response response = getPetInfo.get(baseURL + "/" + list.get("Id"));
+        Assert.assertEquals(200, response.getStatusCode());
         JsonPath jpe = response.jsonPath();
         validatePetStoreBody(jpe);
     }
@@ -60,6 +62,7 @@ public class CRUDPetStore
         list = map;
         putNewValue.body(requestParams.toString());
         response = putNewValue.put(baseURL);
+        Assert.assertEquals(200, response.getStatusCode());
         JsonPath jpe = response.jsonPath();
         validatePetStoreBody(jpe);
     }
@@ -67,12 +70,14 @@ public class CRUDPetStore
     public void deletePet() {
         RequestSpecification deletePet = RestAssured.given();
         Response response = deletePet.delete(baseURL + "/" + list.get("Id"));
+        Assert.assertEquals(200, response.getStatusCode());
         Assert.assertTrue(response.getBody().asString().contains("Pet deleted"));
     }
 
     public void assertPetDeleted() {
         RequestSpecification petRemoved = RestAssured.given();
         Response response = petRemoved.get(baseURL + "/" + list.get("Id"));
+        Assert.assertEquals(200, response.getStatusCode());
         Assert.assertTrue(response.getBody().asString().contains("Pet not found"));
     }
 
