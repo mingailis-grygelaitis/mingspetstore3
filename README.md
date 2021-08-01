@@ -20,4 +20,6 @@ I chose to parameterize all of the values however they could easily be changed t
 
 There are some things that I have not done due to time constraints however they're relatively basic things (e.g. some hardcoded values that could easily be placed in an enum for good practise)
 
+It would also be really easy to extend into other scenarios from this framework.
+
 .gitignore has not been configured for this test so there is some extra files
