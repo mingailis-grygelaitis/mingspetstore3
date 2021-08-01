@@ -8,7 +8,7 @@ There is a basic application.properties file which contains just the URL for now
 Ensure that maven dependencies are imported (or set to auto-import) before attempting to execute
 
 To execute the test do one of the following:
-Run the testrunner in src > test > java > TestRunners - Run a maven job (mvn test in cmdline or maven widget) - Execute the feature individually in features directory
+Run the testrunner in src > test > java > TestRunners / Run a maven job (mvn test in cmdline or maven widget) / Execute the feature individually in features directory
 
 Outcome of test can be seen in the output or there is a HTML output of the tests that you can view (through your browser etc) [target > cucumber-reports]
 
